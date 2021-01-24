@@ -1,0 +1,13 @@
+STB_Expander    KEYWORD1
+    getI2CAdd          KEYWORD2
+    getExpanderNumber  KEYWORD2
+InputPin	    KEYWORD1
+    read                KEYWORD2
+OutputPin	    KEYWORD1
+    on                  KEYWORD2
+    off                 KEYWORD2
+    set                 KEYWORD2
+    toggle              KEYWORD2
+
+ON          LITERAL1    
+OFF         LITERAL1
