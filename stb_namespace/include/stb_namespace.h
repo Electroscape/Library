@@ -11,16 +11,19 @@
 #define MAX485_READ LOW
 
 namespace stb_namespace {
-class Brain {
-   private:
-    /* data */
-   public:
-    Brain(String BrainName);
-    ~Brain();
-};
+    class Brain {
+       private:
+        /* data */
+       public:
+        Brain(String BrainName);
+        ~Brain();
+    };
+    static unsigned long lastHeartbeat = millis();
+    static unsigned long heartbeatFrequency = 3000;
 
-void printWithHeader(String message, String source);
-void softwareReset();
-bool i2cScanner();
-bool brainSerialInit();
+    void printWithHeader(String message, String source);
+    void heartbeat();
+    void softwareReset();
+    bool i2cScanner();
+    bool brainSerialInit();
 }  // namespace stb_namespace

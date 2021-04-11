@@ -30,6 +30,13 @@ void stb_namespace::printWithHeader(String message, String source) {
     digitalWrite(MAX_CTRL_PIN, MAX485_READ);
 }
 
+
+void stb_namespace::heartbeat() {
+    if (millis() - lastHeartbeat >= heartbeatFrequency) {
+        printWithHeader(F("Hearthbeat"), F("SYS"));
+    }
+}
+
 void stb_namespace::softwareReset() {
     Serial.println(F("Restarting in"));
     delay(50);
