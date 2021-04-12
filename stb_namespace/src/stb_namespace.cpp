@@ -31,11 +31,13 @@ void stb_namespace::printWithHeader(String message, String source) {
 }
 
 
+/*
 void stb_namespace::heartbeat() {
     if (millis() - lastHeartbeat >= heartbeatFrequency) {
         printWithHeader(F("Hearthbeat"), F("SYS"));
     }
 }
+*/
 
 void stb_namespace::softwareReset() {
     Serial.println(F("Restarting in"));

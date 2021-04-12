@@ -18,11 +18,11 @@ namespace stb_namespace {
         Brain(String BrainName);
         ~Brain();
     };
-    static unsigned long lastHeartbeat = millis();
-    static unsigned long heartbeatFrequency = 3000;
+    // static unsigned long lastHeartbeat = millis();
+    // static unsigned long heartbeatFrequency = 3000;
 
     void printWithHeader(String message, String source);
-    void heartbeat();
+    // void heartbeat();
     void softwareReset();
     bool i2cScanner();
     bool brainSerialInit();
