@@ -7,6 +7,12 @@ stb_namespace::Brain::Brain(String BrainName) {
 stb_namespace::Brain::~Brain() {
 }
 
+/**
+ *  Initialise I2C, Serial and RS485 busses
+ * 
+ *  @return true (bool) true on success
+ *  @param void void
+ */
 bool stb_namespace::brainSerialInit() {
     Wire.begin();
     Serial.begin(115200);
@@ -18,6 +24,14 @@ bool stb_namespace::brainSerialInit() {
     return true;
 }
 
+/**
+ *  Activates MAX485 to write on the rs485 bus. Serial print the message with 
+ *  the known frame to the frontend
+ * 
+ *  @return void
+ *  @param message (String) message to be printed
+ *  @param source (String) soure of the message default is "SYS"
+ */
 void stb_namespace::printWithHeader(String message, String source) {
     digitalWrite(MAX_CTRL_PIN, MAX485_WRITE);
     Serial.println();
@@ -39,6 +53,12 @@ void stb_namespace::heartbeat() {
 }
 */
 
+/**
+ *  assembly command makes the mcontroller jumps to memory location 0 
+ * 
+ *  @return void
+ *  @param void void
+ */
 void stb_namespace::softwareReset() {
     Serial.println(F("Restarting in"));
     delay(50);
@@ -49,6 +69,12 @@ void stb_namespace::softwareReset() {
     asm volatile("  jmp 0");
 }
 
+/**
+ *  Scans the I2C bus all 
+ * 
+ *  @return void
+ *  @param void void
+ */
 bool stb_namespace::i2cScanner() {
     Serial.println();
     Serial.println(F("I2C scanner:"));

@@ -21,7 +21,7 @@ namespace stb_namespace {
     // static unsigned long lastHeartbeat = millis();
     // static unsigned long heartbeatFrequency = 3000;
 
-    void printWithHeader(String message, String source);
+    void printWithHeader(String message, String source=String("SYS"));
     // void heartbeat();
     void softwareReset();
     bool i2cScanner();
